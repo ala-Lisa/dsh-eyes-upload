@@ -1,0 +1,41 @@
+{
+  "name": "dsh-eyes-upload",
+  "version": "0.1.0",
+  "description": "DSH plugin: invisible image upload for text-only models. Adds a 传图 button + Ctrl+V paste to the composer; images are saved and analyzed with deepseek-eyes (Qwen-VL via ModelScope), and the analysis is injected into the user's next message at the model pre-step — no popups, no draft writes. Ships the deepseek-eyes skill globally.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "vision",
+    "deepseek-eyes",
+    "qwen-vl",
+    "image-upload",
+    "modelscope"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  }
+}

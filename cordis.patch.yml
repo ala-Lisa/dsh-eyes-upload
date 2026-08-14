@@ -1,0 +1,13 @@
+# dsh-eyes-upload bundle: image upload → automatic deepseek-eyes analysis.
+# The host half serves POST /api/eyes-upload (save + vision analysis), the
+# client half adds a "传图" button in the composer tool row.
+#
+# Configuration (see README): either set the fields on this row, or leave the
+# row bare and export environment variables:
+#   EYES_API_KEY    — ModelScope API key WITHOUT the "ms-" prefix
+#   EYES_PYTHON     — python executable with deepseek-eyes installed
+#   EYES_REPO_DIR   — deepseek-eyes repo dir (cwd for the analysis script)
+#   EYES_UPLOAD_DIR — where uploaded images are saved
+- insert:
+    - id: eyes-upload
+      name: dsh-eyes-upload
